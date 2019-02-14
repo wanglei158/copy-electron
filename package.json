@@ -1,0 +1,23 @@
+{
+  "name": "test-electron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node .electron-build/dev-runner.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babili-webpack-plugin": "^0.1.2",
+    "chalk": "^2.4.2",
+    "electron": "^4.0.4"
+  },
+  "dependencies": {
+    "cfonts": "^2.4.2",
+    "webpack": "^4.29.3",
+    "webpack-dev-server": "^3.1.14",
+    "webpack-hot-middleware": "^2.24.3"
+  }
+}
