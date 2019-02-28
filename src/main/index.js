@@ -10,6 +10,7 @@ function createWindow() {
     });
 
     mainWindow.loadURL(winURL);
+    mainWindow.webContents.openDevTools();
 }
 
 app.on('ready', createWindow);
