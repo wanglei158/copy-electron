@@ -12,13 +12,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin'); // 动态构建html
 const { VueLoaderPlugin } = require('vue-loader');
 
 let whiteListModules = ['vue'];
-const resolvePath = path => path.join(__dirname, '..', path);
+const resolvePath = p => path.join(__dirname, '..', p);
 
 let rendererConfig = {
   target: 'electron-renderer',
   devtool: '#cheap-module-eval-source-map', // 生成一个没有列信息（column-mappings）的SourceMaps文件，同时 loader 的 sourcemap 也被简化为只包含对应行的
   entry: {
-    renderer: resolvePath('src/renderer/main.js')
+    renderer: resolvePath('src/renderer/index.js')
   },
   output: {
     filename: '[name].js',
@@ -99,7 +99,7 @@ let rendererConfig = {
     new MiniCssExtractPlugin({ filename: 'styles.css' }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: path.resolve('../src/index.ejs'),
+      template: path.resolve(__dirname, '../src/index.ejs'),
       minify: {
         collapseWhitespace: true,
         removeAttributeQuotes: true,
@@ -119,3 +119,5 @@ if (process.env.NODE_ENV === 'production') {
     new CopyWebpackPlugin([{ from: resolvePath('static'), to: resolvePath('dist/electron/static'), ignore: ['.*'] }])
   );
 }
+
+module.exports = rendererConfig;
