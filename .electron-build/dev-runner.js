@@ -10,7 +10,7 @@ const WebpackDevServer = require('webpack-dev-server');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 
 const mainConfig = require('./webpack.main.config');
-const rendererConfig = require('./webpack.renderer.config');
+// const rendererConfig = require('./webpack.renderer.config');
 
 let electronProcess = null;
 let manualRestart = false;
@@ -157,34 +157,34 @@ let hotMiddleware;
 //     }
 // }
 
-// function greeting() {
-//     const cols = process.stdout.columnsdev
-//     let text = ''
+function greeting() {
+    const cols = process.stdout.columns
+    let text = ''
 
-//     if (cols > 104) text = 'electron-vue'
-//     else if (cols > 76) text = 'electron-|vue'
-//     else text = false
+    if (cols > 104) text = 'electron-vue'
+    else if (cols > 76) text = 'electron-|vue'
+    else text = false
 
-//     if (text) {
-//         say(text, {
-//             colors: ['yellow'],
-//             font: 'simple3d',
-//             space: false
-//         })
-//     } else console.log(chalk.yellow.bold('\n  electron-vue'))
-//     console.log(chalk.blue('  getting ready...') + '\n')
-// }
+    if (text) {
+        say(text, {
+            colors: ['yellow'],
+            font: 'simple3d',
+            space: false
+        })
+    } else console.log(chalk.yellow.bold('\n  electron-vue'))
+    console.log(chalk.blue('  getting ready...') + '\n')
+}
 
-// function init() {
-//     greeting()
+function init() {
+    greeting()
 
-//     Promise.all([startRenderer(), startMain()])
-//         .then(() => {
-//             startElectron()
-//         })
-//         .catch(err => {
-//             console.error(err)
-//         })
-// }
+    // Promise.all([startRenderer(), startMain()])
+    //     .then(() => {
+    //         startElectron()
+    //     })
+    //     .catch(err => {
+    //         console.error(err)
+    //     })
+}
 
-// init()
+init()
